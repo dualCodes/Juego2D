@@ -1,8 +1,12 @@
 using UnityEngine;
+using TMPro;
 
 public class movimiento : MonoBehaviour
 {
     public float velocidad = 7f;
+
+    public TextMeshProUGUI textoPantalla;
+    private int puntuacion = 0;
 
     void Update()
     {
@@ -28,6 +32,8 @@ public class movimiento : MonoBehaviour
     private void OnTriggerEnter2D(Collider2D collision)
     {
         Destroy(collision.gameObject);
-        Debug.Log("moneda");
+
+        puntuacion += 1;
+        textoPantalla.text = "Puntuación: " + puntuacion;
     }
 }
